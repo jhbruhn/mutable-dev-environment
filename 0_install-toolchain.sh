@@ -47,7 +47,7 @@ cd /home/vagrant
 wget -nv https://downloads.sourceforge.net/project/openocd/openocd/0.9.0/openocd-0.9.0.tar.gz
 tar xfz openocd-0.9.0.tar.gz
 cd openocd-0.9.0
-./configure --enable-ftdi --enable-stlink
+./configure --enable-ftdi --enable-stlink --enable-jlink
 make
 sudo make install
 cd /home/vagrant
@@ -74,6 +74,7 @@ echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="15ba", ATTRS{idProduct}=="0003", GROU
 echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="15ba", ATTRS{idProduct}=="002a", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
 echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="15ba", ATTRS{idProduct}=="002b", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
 echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2104", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
+echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="1366", ATTRS{idProduct}=="0101", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
 echo 'SUBSYSTEMS=="usb", KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="users", MODE="0666", SYMLINK+="ftdi-usbserial"' >> /etc/udev/rules.d/60-programmers.rules
 sudo udevadm control --reload-rules
 sudo udevadm trigger
