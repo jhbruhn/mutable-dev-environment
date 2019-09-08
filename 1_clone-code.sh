@@ -31,7 +31,7 @@ else
         cd $DEV_ENV
     fi
     git submodule init
-    git submodule update
+    git submodule update --recursive
 fi
 
 # after logging in, cd directly to the code directory
