@@ -33,7 +33,8 @@ sudo apt-get install -y build-essential autotools-dev autoconf pkg-config libusb
 sudo locale-gen UTF-8
 
 # Install python
-sudo apt-get install -y python2.7 python-numpy python-scipy python-matplotlib
+sudo apt-get install -y python2.7 python-numpy python-scipy python-matplotlib python-pip
+sudo pip install compiledb
 
 # Install development tools for avr
 sudo apt-get install -y gcc-avr binutils-avr avr-libc avrdude
@@ -75,6 +76,7 @@ echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="15ba", ATTRS{idProduct}=="002a", GROU
 echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="15ba", ATTRS{idProduct}=="002b", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
 echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2104", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
 echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="1366", ATTRS{idProduct}=="0101", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
+echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2141", GROUP="users", MODE="0666"' >> /etc/udev/rules.d/60-programmers.rules
 echo 'SUBSYSTEMS=="usb", KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="users", MODE="0666", SYMLINK+="ftdi-usbserial"' >> /etc/udev/rules.d/60-programmers.rules
 sudo udevadm control --reload-rules
 sudo udevadm trigger
